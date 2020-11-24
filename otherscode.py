@@ -1,5 +1,4 @@
 from microbit import *
-import radio
 import random
 import sys
 
@@ -18,7 +17,7 @@ def print_board():
     for count, item in enumerate(dup):
         if item=='X':
             dup[count]='9'
-        if item=='O':
+        elif item=='O':
             dup[count]='5'
         else:
             dup[count]='0'
@@ -42,7 +41,7 @@ def print_board():
     dup.insert(0,'0')
     dup.insert(0,'0')
     dup.insert(5,':')
-    str = ''.join(dup);
+    str = ''.join(dup)
     display.show(Image(str))
     
         
@@ -109,12 +108,13 @@ def computer_move():
 def space_exist():
     return board.count('X') + board.count('O') != 9
 
-player, computer = select_char()
+player, computer = ('X','O')
 result='%%% Deuce ! %%%'
 while space_exist():
     print_board()
     sleep(1000)
-    move = 1 if pin0.read_digital() else 0
+    move = 1 #if pin0.read_digital() else 4
+    board[0] = 'X'
     moved, won = make_move(board, player, move)
     if won:
         result='*** Congratulations ! You won ! ***'
