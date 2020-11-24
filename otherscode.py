@@ -113,6 +113,7 @@ player, computer = select_char()
 result='%%% Deuce ! %%%'
 while space_exist():
     print_board()
+    sleep(1000);
     move = 1 if pin0.read_digital() else 0
     moved, won = make_move(board, player, move)
     if won:
