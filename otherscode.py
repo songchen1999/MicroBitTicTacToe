@@ -112,6 +112,7 @@ player, computer = ('X','O')
 result='%%% Deuce ! %%%'
 # avoid the first round problem
 sideEf = 0;
+display.scroll("Welcome")
 while space_exist():
     
     print_board()
@@ -161,22 +162,24 @@ while space_exist():
             move = 5
         elif pin13.read_digital():
             move = 6
-        elif pin13.read_digital():
+        elif pin14.read_digital():
             move = 7
-        elif pin13.read_digital():
+        elif pin15.read_digital():
             move = 8
-        elif pin13.read_digital():
+        elif pin16.read_digital():
             move = 9
         
     #board[0] = 'X'
     moved, won = make_move(board, player, move)
     sleep(1000)
     if won:
-        result='*** Congratulations ! You won ! ***'
+        display.scroll("Good Job")
         break
     elif computer_move()[1]:
-        result='=== You lose ! =='
+        display.scroll("Try Again")
         break
     sideEf = sideEf+1
 
 print_board()
+
+        
