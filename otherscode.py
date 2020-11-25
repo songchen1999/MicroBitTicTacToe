@@ -180,5 +180,3 @@ while space_exist():
     sideEf = sideEf+1
 
 print_board()
-
-        
