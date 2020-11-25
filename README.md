@@ -1,5 +1,6 @@
 # MicroBitTicTacToe
-<br/> otherscript.py is the real working file
+
+<br/> otherscode.py is the real working file
 
 DEMO: https://www.youtube.com/watch?v=x_FtQQH1uPk&t=1s
 
