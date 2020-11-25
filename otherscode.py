@@ -110,17 +110,31 @@ def space_exist():
 
 player, computer = ('X','O')
 result='%%% Deuce ! %%%'
+# avoid the first round problem
+sideEf = 0;
 while space_exist():
+    
     print_board()
-    sleep(1000)
-    move = 1 #if pin0.read_digital() else 4
-    board[0] = 'X'
+    if sideEf==0:
+      pin0.read_digital()
+      sideEf = sideEf+1
+      continue
+      sleep(5000)
+    else:
+      sleep(1000)
+     
+    move = 1 if pin0.read_digital() else 3
+    #board[0] = 'X'
     moved, won = make_move(board, player, move)
+    sleep(1000)
     if won:
         result='*** Congratulations ! You won ! ***'
         break
     elif computer_move()[1]:
         result='=== You lose ! =='
         break
+    sideEf = sideEf+1;
 
 print_board()
+
+        
