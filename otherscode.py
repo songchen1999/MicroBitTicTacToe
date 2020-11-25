@@ -180,6 +180,6 @@ while space_exist():
         break
     sideEf = sideEf+1
 
-print_board()
 
         
+
