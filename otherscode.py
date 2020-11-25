@@ -126,6 +126,11 @@ while space_exist():
       #pin7.read_digital()
       pin8.read_digital()
       #pin9.read_digital()
+      pin12.read_digital()
+      pin13.read_digital()
+      pin14.read_digital()
+      pin15.read_digital()
+      pin16.read_digital()
       sideEf = sideEf+1
       continue
       sleep(1000)
@@ -151,6 +156,16 @@ while space_exist():
         #elif pin7.read_digital():
         #    move = 8
         elif pin8.read_digital():
+            move = 4
+        elif pin12.read_digital():
+            move = 5
+        elif pin13.read_digital():
+            move = 6
+        elif pin13.read_digital():
+            move = 7
+        elif pin13.read_digital():
+            move = 8
+        elif pin13.read_digital():
             move = 9
         
     #board[0] = 'X'
