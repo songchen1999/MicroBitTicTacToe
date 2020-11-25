@@ -110,17 +110,75 @@ def space_exist():
 
 player, computer = ('X','O')
 result='%%% Deuce ! %%%'
+# avoid the first round problem
+sideEf = 0;
 while space_exist():
+    
     print_board()
-    sleep(1000)
-    move = 1 #if pin0.read_digital() else 4
-    board[0] = 'X'
+    if sideEf==0:
+      pin0.read_digital()
+      pin1.read_digital()
+      pin2.read_digital()
+      #pin3.read_digital()
+      #pin4.read_digital()
+      #pin5.read_digital()
+      #pin6.read_digital()
+      #pin7.read_digital()
+      pin8.read_digital()
+      #pin9.read_digital()
+      pin12.read_digital()
+      pin13.read_digital()
+      pin14.read_digital()
+      pin15.read_digital()
+      pin16.read_digital()
+      sideEf = sideEf+1
+      continue
+      sleep(1000)
+    else:
+        sleep(1000)
+     
+    move = None
+    while move==None:
+        if pin0.read_digital():
+            move = 1
+        elif pin1.read_digital():
+            move = 2
+        elif pin2.read_digital():
+            move = 3
+        #elif pin3.read_digital():
+         #   move = 4
+        #elif pin4.read_digital():
+         #   move = 5
+        #elif pin5.read_digital():
+        #    move = 6
+        #elif pin6.read_digital():
+        #    move = 7
+        #elif pin7.read_digital():
+        #    move = 8
+        elif pin8.read_digital():
+            move = 4
+        elif pin12.read_digital():
+            move = 5
+        elif pin13.read_digital():
+            move = 6
+        elif pin13.read_digital():
+            move = 7
+        elif pin13.read_digital():
+            move = 8
+        elif pin13.read_digital():
+            move = 9
+        
+    #board[0] = 'X'
     moved, won = make_move(board, player, move)
+    sleep(1000)
     if won:
         result='*** Congratulations ! You won ! ***'
         break
     elif computer_move()[1]:
         result='=== You lose ! =='
         break
+    sideEf = sideEf+1
 
 print_board()
+
+        
