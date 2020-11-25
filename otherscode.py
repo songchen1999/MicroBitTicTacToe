@@ -121,9 +121,9 @@ while space_exist():
       continue
       sleep(5000)
     else:
-      sleep(1000)
+        sleep(1000)
      
-    move = 1 if pin0.read_digital() else 3
+    move = 5 if pin0.read_digital() else 4
     #board[0] = 'X'
     moved, won = make_move(board, player, move)
     sleep(1000)
@@ -133,7 +133,7 @@ while space_exist():
     elif computer_move()[1]:
         result='=== You lose ! =='
         break
-    sideEf = sideEf+1;
+    sideEf = sideEf+1
 
 print_board()
 
